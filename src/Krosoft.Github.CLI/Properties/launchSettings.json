@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Krosoft.Github.CLI": {
+      "commandName": "Project",
+      "workingDirectory": "../../",
+      "commandLineArgs": "pr-list --profile ./files/local.json"
+    }
+  }
+}

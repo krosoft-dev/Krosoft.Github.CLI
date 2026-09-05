@@ -1,0 +1,14 @@
+{
+  "name": "local",
+  "github": {
+    "owner": "mon-organisation",
+    "pat": "secret_pat",
+    "repositories": []
+  },
+  "pullRequests": {
+    "state": "open",
+    "titles": ["Renovate - Update all Krosoft.Extensions packages"],
+    "exactTitle": true,
+    "repositories": []
+  }
+}

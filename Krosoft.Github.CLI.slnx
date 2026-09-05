@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Krosoft.Github.CLI/Krosoft.Github.CLI.csproj" />
+  <Project Path="tests/Krosoft.Github.CLI.Tests/Krosoft.Github.CLI.Tests.csproj" />
+</Solution>
