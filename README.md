@@ -19,7 +19,7 @@ Toutes les commandes prennent `--profile <fichier.json>`. Le profil cible un own
 
 ```json
 {
-  "name": "tenor",
+  "name": "krosoft",
   "github": {
     "owner": "mon-organisation",
     "pat": "ghp_xxxxxxxx",
@@ -38,7 +38,7 @@ Toutes les commandes prennent `--profile <fichier.json>`. Le profil cible un own
 | Champ | Description |
 |-------|-------------|
 | `owner` | Organisation ou utilisateur GitHub à parcourir (ex: `krosoft-dev`). |
-| `pat` | Personal Access Token. Classique : scopes `repo` (dépôts privés) ou `public_repo`, et `workflow` (pour relancer les runs). Fine-grained : *Pull requests* (read & write), *Actions* (read & write), *Contents* (read), *Metadata* (read). |
+| `pat` | Personal Access Token. Classique : scopes `repo` (dépôts privés) ou `public_repo`, et `workflow` (pour relancer les runs). Fine-grained : *Pull requests* (read & write), *Actions* (read & write), *Contents* (read & write, requis par `pr-merge`), *Metadata* (read). |
 | `repositories` | Dépôts à parcourir (scope du scan). Vide = tous les dépôts non archivés de l'owner. |
 | `apiUrl` | Optionnel. URL de base de l'API pour GitHub Enterprise (ex: `https://github.mon-entreprise.com/api/v3`). Défaut : `https://api.github.com`. |
 | `mergeMethod` | Méthode de fusion utilisée par `pr-merge` : `squash` (défaut), `merge` ou `rebase`. Doit être autorisée par le dépôt. |
@@ -77,26 +77,26 @@ Toutes les commandes prennent `--profile <fichier.json>`. Le profil cible un own
 Avec l'outil installé :
 
 ```bash
-krosoft-github pr-list --profile ./files/tenor.json
-krosoft-github pr-approve --profile ./files/tenor.json --dry-run
-krosoft-github pr-approve --profile ./files/tenor.json
-krosoft-github pr-approve --profile ./files/tenor.json --merge
-krosoft-github pr-merge --profile ./files/tenor.json --dry-run
-krosoft-github pr-merge --profile ./files/tenor.json
-krosoft-github pr-rerun --profile ./files/tenor.json --numbers 42
-krosoft-github run-list --profile ./files/tenor.json
+krosoft-github pr-list --profile ./files/krosoft.json
+krosoft-github pr-approve --profile ./files/krosoft.json --dry-run
+krosoft-github pr-approve --profile ./files/krosoft.json
+krosoft-github pr-approve --profile ./files/krosoft.json --merge
+krosoft-github pr-merge --profile ./files/krosoft.json --dry-run
+krosoft-github pr-merge --profile ./files/krosoft.json
+krosoft-github pr-rerun --profile ./files/krosoft.json --numbers 42
+krosoft-github run-list --profile ./files/krosoft.json
 ```
 
 Depuis les sources (le `--` sépare les arguments de `dotnet run` de ceux du CLI) :
 
 ```bash
-dotnet run --project src/Krosoft.Github.CLI -- pr-list --profile ./files/tenor.json
-dotnet run --project src/Krosoft.Github.CLI -- pr-approve --profile ./files/tenor.json --dry-run
-dotnet run --project src/Krosoft.Github.CLI -- pr-approve --profile ./files/tenor.json
-dotnet run --project src/Krosoft.Github.CLI -- pr-merge --profile ./files/tenor.json --dry-run
-dotnet run --project src/Krosoft.Github.CLI -- pr-merge --profile ./files/tenor.json
-dotnet run --project src/Krosoft.Github.CLI -- pr-rerun --profile ./files/tenor.json --numbers 42
-dotnet run --project src/Krosoft.Github.CLI -- run-list --profile ./files/tenor.json
+dotnet run --project src/Krosoft.Github.CLI -- pr-list --profile ./files/krosoft.json
+dotnet run --project src/Krosoft.Github.CLI -- pr-approve --profile ./files/krosoft.json --dry-run
+dotnet run --project src/Krosoft.Github.CLI -- pr-approve --profile ./files/krosoft.json
+dotnet run --project src/Krosoft.Github.CLI -- pr-merge --profile ./files/krosoft.json --dry-run
+dotnet run --project src/Krosoft.Github.CLI -- pr-merge --profile ./files/krosoft.json
+dotnet run --project src/Krosoft.Github.CLI -- pr-rerun --profile ./files/krosoft.json --numbers 42
+dotnet run --project src/Krosoft.Github.CLI -- run-list --profile ./files/krosoft.json
 ```
 
 Code de sortie : `0` si tout s'est bien passé, `-1` en cas d'erreur ou si au moins une action a échoué.

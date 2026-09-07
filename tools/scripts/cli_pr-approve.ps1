@@ -1,0 +1,1 @@
+dotnet run --project src/Krosoft.Github.CLI -- pr-approve --merge --profile ./files/krosoft.json

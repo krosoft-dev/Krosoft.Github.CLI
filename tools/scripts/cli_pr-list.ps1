@@ -1,0 +1,1 @@
+dotnet run --project src/Krosoft.Github.CLI -- pr-list --profile ./files/krosoft.json
